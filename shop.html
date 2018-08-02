@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>shop</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header id="shop_header">
+    <div id="shop_title">
+      <h1>ミステリーショップへようこそ</h1>
+      <img src="img/mystery_guy.png" alt="owner" height="80">
+      <p id="backToBattle">バトルに戻る</p>
+    </div>
+
+  </header>
+  <section class="shop_main">
+    <div id="item_display">
+      <div class="item_display_box">
+        <div id="item1_display">
+          <p class="item_description">Junk Foodの力で一気に元気が出る</p>
+          <p class="item_effect">HP100回復</p>
+          <img src="img/Hp_recov.png" alt="HP_re_display" height="350">
+          </div>
+          <div id="item2_display">
+            <p class="item_description">斧で攻撃力を増強する</p>
+            <p class="item_effect">3回攻撃ATK50アップ</p>
+            <img src="img/axe.png" alt="ATK_en_display" height="350">
+          </div>
+          <div id="item3_display">
+            <p class="item_description">大好きな骨で防御する</p>
+            <p class="item_effect">3回防御DEF50アップ</p>
+            <img src="img/bone_large.png" alt="ATK_en_display" height="350">
+          </div>
+          <div id="item4_display">
+            <p class="item_description">ピザを食べたら動きが素早くなる</p>
+            <p class="item_effect">3回攻撃SPDx2</p>
+            <img src="img/pizza.gif" alt="ATK_en_display" height="350">
+          </div>
+          <div id="item5_display">
+            <p class="item_description">宇宙の力を吸収して放つ</p>
+            <p class="item_effect">３回攻撃SKLを大幅にあげる</p>
+            <img src="img/galaxy_ball.png" alt="ATK_en_display" height="350">
+          </div>
+        </div>
+
+    </div>
+    <div id="item_choose">
+      <div class="item">
+        <img src="img/Hp_recov.png" alt="HP_re" height="90" id="item1">
+        <p id="show_item1_amount"></p>
+      </div>
+      <div class="item">
+        <img src="img/axe.png" alt="ATK_en" height="108" id="item2">
+        <p id="show_item2_amount"></p>
+      </div>
+      <div class="item">
+        <img src="img/bone_large.png" alt="DEF_en" height="108" id="item3">
+        <p id="show_item3_amount"></p>
+      </div>
+      <div class="item">
+        <img src="img/pizza.gif" alt="SPD_en" height="90" id="item4">
+        <p id="show_item4_amount"></p>
+      </div>
+      <div class="item">
+        <img src="img/galaxy_ball.png" alt="SKL_en" height="108" id="item5">
+        <p id="show_item5_amount"></p>
+      </div>
+      <div id="balance">
+        <p style="color:white">所持金</p>
+        <p id="balance_display"></p>
+      </div>
+    </div>
+  </section>
+  <footer><div class="copyright">(c) Copyright 2018 Chan Po Yu</div></footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="js/function.js"></script>
+  <script src="js/item.js"></script>
+
+</body>
+</html>

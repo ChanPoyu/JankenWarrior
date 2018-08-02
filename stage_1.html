@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>じゃんけん勇者</title>
+  <link rel="icon" href="img/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- <audio src="sound/bgm.WAV" autoplay></audio> -->
+<header>
+  <h1 id="stage_title">ステージ１</h1>
+  <p id="stage_id">1</p>
+</header>
+<section>
+  <div class="container">
+    <div id="HP">
+      <div id="player_status">
+        <h1 id="plyer_name_display">プレイヤー</h1>
+        <p id="player_hp"></p>
+        <img src="img/0_running_dog.gif" alt="player" height="100" id="player_icon">
+      </div>
+
+      <div id="enemy_status">
+        <h1 id="enemy_name_display"></h1>
+        <p id="enemy_hp"></p>
+        <img src="img/bad_dog.png" alt="enemy_icon" height="120" id="enemy_icon">
+      </div>
+    </div>
+    <div class="round_result">
+      <h1 id="round-result"></h1>
+    </div>
+
+    <div id="console">
+      <div id="move">
+        <img src="img/choki.png" alt="scissor" id="scissor" class="play_button" height="100" width="100">
+        <img src="img/gu.png" alt="stone" id="stone" class="play_button" height="100" width="100">
+        <img src="img/pa.png" alt="paper" id="paper" class="play_button" height="100" width="100">
+      </div>
+      <div id="item">
+        <table>
+          <tr>
+            <td><img src="img/Hp_recov.png" alt="HP_re" height="45" id="item1_button" class="item_button"></td>
+            <td><img src="img/axe.png" alt="ATK_en" height="54" id="item2_button" class="item_button"></td>
+            <td><img src="img/bone_large.png" alt="DEF_en" height="54" id="item3_button" class="item_button"></td>
+            <td><img src="img/pizza.gif" alt="SPD_en" height="45" id="item4_button" class="item_button"></td>
+            <td><img src="img/galaxy_ball.png" alt="SKL_en" height="54" id="item5_button" class="item_button"></td>
+          </tr>
+          <tr>
+            <td>
+              <p id="item1_dis_amount"></p>
+              <p id="item1_dis">HP+100</p>
+            </td>
+            <td>
+              <p id="item2_dis_amount"></p>
+              <p id="item2_dis">ATK+50</p>
+            </td>
+            <td>
+              <p id="item3_dis_amount"></p>
+              <p id="item3_dis">DEF+50</p>
+            </td>
+            <td>
+              <p id="item4_dis_amount"></p>
+              <p id="item4_dis">SPDx2</p>
+            </td>
+            <td>
+              <p id="item5_dis_amount"></p>
+              <p id="item5_dis">SKL up</p>
+            </td>
+          </tr>
+        </table>
+        <h3 id="go_to_shop">ショップ</h3>
+      </div>
+    </div>
+  </div>
+  <div id="round_win">
+    <div id="round_win_content">
+      <h1>お見事</h1>
+      <div class="next_stage">
+        <p><a href="stage_2.html">NEXT STAGE</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="round_lose">
+    <div id="round_lose_content">
+      <h1>またやり直しましょう</h1>
+      <a href="index.html"><p>もう一度遊びます</p></a>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="js/function.js"></script>
+  <script src="js/item.js"></script>
+  <script src="js/character.js"></script>
+  <script src="js/main.js"></script>
+</section>
+
+<footer>
+  <div class="copyright">(c) Copyright 2018 Chan Po Yu</div>
+</footer>
+</body>
+</html>
