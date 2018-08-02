@@ -1,0 +1,242 @@
+@font-face {
+  font-family: "pixel";
+  src: url("../font/PixelMplus10-Regular.ttf");
+}
+body {
+  font-family: "pixel";
+  margin: 0;
+  height: 600px;
+  width: 100%;
+}
+header {
+  text-align: center;
+  background: black;
+  color: white;
+  width: 100%;
+  margin: 0;
+  padding: 60px 0 60px 0;
+  font-size: 20px;
+  opacity: 1;
+  border-bottom: 5px solid #A901DB;
+}
+header h1{
+  margin: 0;
+}
+#stage_id{
+  display: none;
+}
+#shop_header{
+  padding: 0;
+}
+#shop_title{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 0 10px 50px;
+}
+section{
+  background: black;
+}
+.container{
+  width: 90%;
+  margin: auto;
+  border-left: 5px solid #A901DB;
+  border-right: 5px solid #A901DB;
+}
+#player_name, #submit_player {
+  position: relative;
+  left: 20px;
+}
+#player_registry{
+  text-align: center;
+  background: black;
+  color: white;
+  height: 525px;
+}
+#player_name{
+  margin: 0 0 80px 0;
+  font-size: 24px;
+}
+#player_registry p{
+  padding-top: 100px;
+  margin: 0 0 80px 0;
+  font-size: 24px;
+}
+#HP {
+  display: flex;
+  justify-content: space-between;
+  height: 200px;
+  margin: 0;
+  padding: 35px 100px 0px 100px;
+  background: #B3B2AE;
+}
+#player_icon{
+  position: relative;
+  left: -30px;
+}
+#enemy_icon{
+  position: relative;
+  top: -8px;
+}
+#enemy_hp{
+  text-align: right;
+}
+.round_result{
+  text-align: center;
+  font-size: 30px;
+  height: 100px;
+  background: #B3B2AE;
+}
+#round-result{
+  margin: 0;
+  display: none;
+}
+#console{
+  display: block;
+  justify-content: space-end;
+  align-items: flex-end;
+  padding: 0 60px 5px 40px;
+  background: #B3B2AE;
+  /* height: 120px; */
+}
+#item {
+  padding: 0;
+  margin-bottom: 10px;
+}
+#item table{
+  text-align: center;
+  margin-left: 28px;
+  height: 120px;
+
+}
+#item td {
+  padding: 0;
+  text-align: center;
+}
+#item1_dis, #item2_dis, #item3_dis,
+#item4_dis, #item5_dis{
+  display: none;
+  position: absolute;
+  top: 700px;
+}
+
+#hp_re {
+  background-image: url("../img/HP_recovery.jpg");
+}
+#item h3{
+  text-align: right;
+  margin: 0;
+}
+.play_button{
+  border-radius: 50%;
+  background-color: #CD0F13;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.28);
+  border-style: double;
+}
+.play_button:active{
+  transform: translateY(4px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
+}
+.item_button:active{
+  transform: translateY(3px);
+}
+#round_win{
+  position: absolute;
+  left: 35%;
+  top: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 300px;
+  width: 500px;
+  margin: auto;
+  background-color: red;
+  color: black;
+  border-radius: 5px;
+}
+.next_stage{
+  background: #A4AE6F;
+  width: 90px;
+  padding: 5px 0 5px 0;
+  border-radius: 5px;
+  color: black;
+  text-decoration: none;
+}
+.next_stage a{
+  color: black;
+  text-decoration: none;
+}
+.next_stage:hover{
+  background: #DBF352;
+  width: 90px;
+  padding: 5px 0 5px 0;
+  border-radius: 5px;
+}
+#round_lose{
+  position: absolute;
+  left: 35%;
+  top: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 300px;
+  width: 500px;
+  margin: auto;
+  background-color: blue;
+  border-radius: 5px;
+}
+.copyright{
+  text-align: center;
+  background: black;
+  color:white;
+  padding: 22px 0 22px;
+  /* height: 100px; */
+  border-top: 5px solid #A901DB;
+}
+#item_choose{
+  width: 50%;
+  margin-left: auto;
+  border-left: 5px solid #A901DB;
+  display: block;
+  text-align: center;
+  padding: 20px 0 20px 0;
+}
+.shop_main{
+  display: flex;
+}
+.item{
+  margin: 10px 0 10px 0;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 100px;
+}
+#item_display{
+  display: flex;
+  align-items: center;
+  width: 49%;
+}
+.item_display_box{
+  /* position: absolute; */
+  width: 100%;
+}
+#item1_display, #item2_display, #item3_display,
+#item4_display, #item5_display{
+  display: none;
+  position: absolute;
+  left: -7%;
+  top: 17%;
+  width: 60%;
+  margin: auto;
+  text-align: center;
+}
+#item1:active, #item2:active, #item3:active,
+#item4:active, #item5:active{
+  transform: translateY(4px);
+}
+.item_description, .item_effect{
+  color: white;
+  font-size: 22px;
+  margin: 0 0 20px 0;
+}
