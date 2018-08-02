@@ -1,7 +1,7 @@
 # JankenWarrior
 A simple RPG game which use a battle system inspired by Janken
 
-~ usage
+## usage
 
 index.html  から始めてください
 名前を英字半形で入力してください（名前によってキャラクターが変わるので、色々試してください）
