@@ -4,8 +4,8 @@ A simple RPG game which use a battle system inspired by Janken
 ## setting
 1. ```npm init```
 2. ```npm install lite-server --save-dev```
-3. 
-``` # Inside package.json...
+3. Inside package.json...
+``` 
   "scripts": {    
     "dev": "lite-server"
   },
