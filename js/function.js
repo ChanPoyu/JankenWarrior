@@ -1,127 +1,8 @@
-// アイテムを買う
-function buy_item(_item, _key){
-  var _price = _item.price;
-  var _balance = localStorage.getItem("player_balance");
-  _balance = parseInt(_balance) - _price;
-  if(_balance >= 0){
-    var _value =  localStorage.getItem(_key);
-    _value = parseInt(_value) + 1;
-    localStorage.setItem(_key, _value);
-    localStorage.setItem("player_balance", _balance);
-    $("#balance_display").html(_balance);
-  }
-}
-
-// アイテムを使う
-function use_item(_key, _item){
-  var _value = localStorage.getItem(_key);
-  _value = parseInt(_value) - 1;
-  if(_value >= 0){
-    localStorage.setItem(_key, _value);
-
-    if(_key === "item_HP_amount"){
-      player.HP += _item.power;
-      if(player.HP > 200){
-        player.HP = 200;
-      }
-      $("#player_hp").html(player.HP);
-      $("#item1_dis_amount").html(localStorage.getItem("item_HP_amount"));
-    }else if(_key === "item_ATK_amount"){
-      player.ATK += _item.power;
-      $("#item2_dis_amount").html(localStorage.getItem("item_ATK_amount"));
-    }else if(_key === "item_DEF_amount"){
-      player.DEF += _item.power;
-      $("#item3_dis_amount").html(localStorage.getItem("item_DEF_amount"));
-    }else if(_key === "item_SPD_amount"){
-      player.SPD = player.SPD * _item.power;
-      $("#item4_dis_amount").html(localStorage.getItem("item_SPD_amount"));
-    }else if(_key === "item_SKL_amount"){
-      player.SKL = player.SKL * _item.power;
-      $("#item5_dis_amount").html(localStorage.getItem("item_SKL_amount"));
-    }
-
-  }else if(_value >= 0){
-    return "item empty";
-  }
-}
-
-function countItem(){
-  if(count_ATK > 0){
-    count_ATK -= 1;
-  }
-  if(count_DEF > 0){
-    count_DEF -= 1;
-  }
-  if(count_SPD > 0){
-    count_SPD -= 1;
-  }
-  if(count_SKL > 0){
-    count_SKL -= 1;
-  }
-}
-
-// コンピューターが拳を出す
-function cmp_random(){
-  var rand = Math.floor(Math.random() * 3);
-  switch(rand){
-    case 0:
-      return "scissor";
-      break;
-    case 1:
-      return "stone";
-      break;
-    case 2:
-      return "paper";
-      break;
-  }
-}
-
-// ダメージ計算
-function damage(_attacker, _deffender){
-  var roulette = Math.random();
-  console.log("1st rouleet is " + roulette);
-  var critical_attack = false;
-  var critical_posibility = _attacker.SKL / 1000;
-  var atk = _attacker.ATK;
-  if(roulette > 0 && roulette < critical_posibility){
-    critical_attack = true;
-    atk = 2 * _attacker.ATK;
-  }else{
-    critical_attack = false;
-  }
-  var def = _deffender.DEF;
-  var total_dammage = atk - def;
-  var dodge_attack = false;
-  var dodge_posibility = _deffender.SPD / 1000;
-  roulette = Math.random();
-  console.log("2nd rouleet is " + roulette);
-  if(roulette > 0 && roulette < dodge_posibility){
-    dodge_attack = true;
-    return [0, critical_attack, dodge_attack];
-  }else{
-    return [total_dammage, critical_attack, dodge_attack];
-  }
-}
-
-function reward(_value){
-  var recent_balance = localStorage.getItem("player_balance");
-  recent_balance = parseInt(recent_balance);
-  recent_balance = recent_balance + 1000;
-  localStorage.setItem("player_balance", recent_balance);
-  console.log("get " + _value + "coins");
-}
-
-function fadeout(_id, _value){
-  $(_id).html(_value);
-  $(_id).fadeIn("fast", function(){
-    $(this).fadeOut("slow");
-  });
-  return false;
-}
+// choose player's icon randomly by inputed name
 function character_rand(_rand){
   var length = _rand.length;
   var rand_num = 0;
-  
+
   for(var i = 0; i < length; i++){
     switch (_rand[i]){
       case "a":
@@ -208,4 +89,124 @@ function character_rand(_rand){
     }
   }
   return rand_num;
+}
+
+// Buy Items
+function buy_item(_key){
+  var item = JSON.parse(localStorage.getItem(_key));
+  var price = item.price;
+  GsToken.balanceOf(localStorage.getItem("player_account"),function(e,r){});
+  if(balance >= 0){
+    item.amount += 1;
+    localStorage.setItem(_key, item);
+    $("#balance_display").html(_balance);
+  }
+}
+
+// Use Items
+function use_item(_key){
+  var item = JSON.parse(localStorage.getItem(_key));
+  item.amount -= 1;
+  if(item.amount >= 0){
+    localStorage.setItem(_key, JSON.stringify(item));
+  }else if(item.amount < 0){
+    console.log("item empty");
+  }
+  if(_key === "Item_HP"){
+    player.HP += item.power;
+    if(player.HP >= 200){
+      player.HP = 200;
+    }
+  }else if(_key === "Item_ATK"){
+    player.ATK += item.power;
+  }else if(_key === "Item_DEF"){
+    player.DEF += item.power;
+  }else if(_key === "Item_SPD"){
+    player.SPD *= item.power;
+  }else if(_key === "Item_SKL"){
+    player.SKL *= item.power;
+  }
+}
+
+function countItem(){
+  if(count_ATK > 0){
+    count_ATK -= 1;
+  }
+  if(count_DEF > 0){
+    count_DEF -= 1;
+  }
+  if(count_SPD > 0){
+    count_SPD -= 1;
+  }
+  if(count_SKL > 0){
+    count_SKL -= 1;
+  }
+}
+
+// コンピューターが拳を出す
+function cmp_random(){
+  var rand = Math.floor(Math.random() * 3);
+  switch(rand){
+    case 0:
+      return "scissor";
+      break;
+    case 1:
+      return "stone";
+      break;
+    case 2:
+      return "paper";
+      break;
+  }
+}
+
+// ダメージ計算
+function damage(_attacker, _deffender){
+  var roulette = Math.random();
+  console.log("1st rouleet is " + roulette);
+  var critical_attack = false;
+  var critical_posibility = _attacker.SKL / 1000;
+  var atk = _attacker.ATK;
+  if(roulette > 0 && roulette < critical_posibility){
+    critical_attack = true;
+    atk = 2 * _attacker.ATK;
+  }else{
+    critical_attack = false;
+  }
+  var def = _deffender.DEF;
+  var total_dammage = atk - def;
+  var dodge_attack = false;
+  var dodge_posibility = _deffender.SPD / 1000;
+  roulette = Math.random();
+  console.log("2nd rouleet is " + roulette);
+  if(roulette > 0 && roulette < dodge_posibility){
+    dodge_attack = true;
+    return [0, critical_attack, dodge_attack];
+  }else{
+    return [total_dammage, critical_attack, dodge_attack];
+  }
+}
+
+function reward(){
+  GsToken.transfer(localStorage.getItem("player_account"), 20e18, function(err, res){});
+}
+
+function fadeout(_id, _value){
+  $(_id).html(_value);
+  $(_id).fadeIn("fast", function(){
+    $(this).fadeOut("slow");
+  });
+  return false;
+}
+
+function ModifyObject(_key, _property, _value){
+  var object = JSON.parse(localStorage.getItem(_key));
+  var originalValue = object[_property];
+  object[_property] = _value;
+  console.log(_property + ":" + originalValue + " => " + _property + ":" + object._property);
+  var object_json = JSON.stringify(object);
+  localStorage.setItem(_key, object_json);
+}
+function getObjectProperty(_key, _property){
+  var object = JSON.parse(localStorage.getItem(_key));
+  return object[_property];
 }

@@ -43,23 +43,27 @@ section{
   border-left: 5px solid #A901DB;
   border-right: 5px solid #A901DB;
 }
-#player_name, #submit_player {
-  position: relative;
-  left: 20px;
+#player_name, #player_account {
+  /* position: relative; */
+  text-align: center;
+  /* left: 20px; */
+  margin: auto;
+  font-size: 24px;
 }
+#submit_player{
+  margin: 10px 0 0 0;
+ }
 #player_registry{
   text-align: center;
   background: black;
   color: white;
   height: 525px;
 }
-#player_name{
-  margin: 0 0 80px 0;
-  font-size: 24px;
-}
+
 #player_registry p{
-  padding-top: 100px;
-  margin: 0 0 80px 0;
+  padding-top: 20px;
+  text-align: center;
+  margin: 0 0 10px 0;
   font-size: 24px;
 }
 #HP {
@@ -239,4 +243,9 @@ section{
   color: white;
   font-size: 22px;
   margin: 0 0 20px 0;
+}
+#balance{
+  width: 190px;
+  text-align: center;
+  margin-left: auto;
 }
